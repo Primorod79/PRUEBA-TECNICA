@@ -104,31 +104,31 @@ header a:hover{
     font-size: 1.75em;
 }
 
-#somos-proya .container{
+#About-us .container{
     text-align: center;
     padding: 200px 12px;
 }
 
-#nuestros-programas{
+#Our-Products{
     background-color: rgb(30,30,30);
     color: white;
     text-align: center;
 }
 
-#nuestros-programas .container{
+#Our-Products .container{
     padding: 150px 12px;
 }
 
-#nuestros-programas h2{
+#Our-Products h2{
     margin-top: 0;
     font-size: 3.2em;
 }
 
-#nuestros-programas p{
+#Our-Products p{
     display: none;
 }
 
-#nuestros-programas .carta{
+#Our-Products .carta{
     background-position: center center;
     background-size: cover;
     padding: 50px 0px;
@@ -165,12 +165,12 @@ header a:hover{
 
 }
 
-#caracteristicas .container{
+#Create-Product .container{
     text-align: center;
     padding: 250px 12px;
 }
 
-#caracteristicas li{
+#Create-Product li{
     margin: 16px 0px;
     font-weight: bold;
 }
@@ -232,12 +232,12 @@ footer .container{
         font-size: 5em;
     }
 
-    #somos-proya .container{
+    #About-us .container{
         display: flex;
         justify-content: space-evenly;
     }
 
-    #somos-proya .texto{
+    #About-us .texto{
         width: 50%;
         max-width: 600px;
         text-align: initial;
@@ -247,11 +247,11 @@ footer .container{
         justify-content: center;
     }
 
-    #somos-proya h2{
+    #About-us h2{
         margin-top: 0px;
     }
 
-    #somos-proya .img-container{
+    #About-us .img-container{
         background-image: url("https://images.pexels.com/photos/2775196/pexels-photo-2775196.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
         background-size: cover;
         background-position: center center;
@@ -259,25 +259,25 @@ footer .container{
         width: 400px; 
     }
 
-    #nuestros-programas .programas{
+    #Our-Products .programas{
         display: flex;
         justify-content: center;
     }
 
-    #nuestros-programas p{
+    #Our-Products p{
         display: block;
         margin-bottom: 30px;
     }
 
-    #nuestros-programas h2{
+    #Our-Products h2{
         font-size: 4em;
     }
 
-    #nuestros-programas h3{
+    #Our-Products h3{
         margin-top: 0;
     }
 
-    #nuestros-programas .carta{
+    #Our-Products .carta{
         padding: 50px;
         background-size: 100% 150px;
         background-repeat: no-repeat;
@@ -315,18 +315,18 @@ footer .container{
 
     }
 
-    #caracteristicas{
+    #Create-Product{
         background-image: url("https://images.pexels.com/photos/2775196/pexels-photo-2775196.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
         background-repeat: no-repeat;
         background-size: 500px 400px;
         background-position: calc(100vw - 500px) 120px;
     }
 
-    #caracteristicas .container{
+    #Create-Product .container{
         text-align: initial;
     }
 
-    #caracteristicas ul{
+    #Create-Product ul{
         margin-left: 100px;
     }
 
@@ -344,7 +344,7 @@ footer .container{
 }
 
 @media (min-width: 1200px) {
-    #caracteristicas{
+    #Create-Product{
         background-position-x: calc(100vw - 800px);
     }
 }
