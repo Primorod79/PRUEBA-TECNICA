@@ -60,45 +60,123 @@
             <div class="texto">
                 <h2>Create<span class="color-acento"> Product</span></h2>
             </div >
-            <div class="formulario">
-
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">&#64;</span>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                  
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <span class="input-group-text" id="basic-addon2">example.com</span>
-                  </div>
-                  
-                  <div class="mb-3">
-                    <label for="basic-url" class="form-label">Your vanity URL</label>
-                    <div class="input-group">
-                      <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
-                      <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
+            <form [formGroup]="form" (ngSubmit)="addlaptop()">
+                <div class="formulario">
+                
+                    <div class="row">
+                        <div class="col-lg-5" id="Brand">
+                            <label for="validationCustom01" class="form-label"><strong>Brand</strong></label>    
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-laptop"></i>
+                                </span>
+                                <input formControlName="Brand" type="text" class="form-control" placeholder="Asus Rog Strix" >
+                              </div>
+                        </div>
+    
+                        <div class="col-lg-3" id="Color">
+                            <label for="validationCustom01" class="form-label"><strong>Color</strong> </label>    
+                            <select formControlName="Color" class="form-select" aria-label="Default select example">
+                                <option selected>Color</option>
+                                <option value="black">Black</option>
+                                <option value="white">White</option>
+                                <option value="silver">Silver</option>
+                                <option value="grey">Grey</option>
+                                <option value="blue">Blue</option>
+                                <option value="red">Red</option>
+                                <option value="green">Green</option>
+                                <option value="yellow">Yellow</option>
+                                <option value="purple">Purple</option>
+                                <option value="pink">Pink</option>
+                                <option value="brown">Brown</option>
+                                <option value="gold">Gold</option>
+                                <option value="orange">Orange</option>
+                                <option value="teal">Teal</option>
+                                <option value="navy">Navy</option>
+                                <option value="maroon">Maroon</option>
+                                <option value="lime">Lime</option>
+                                <option value="olive">Olive</option>
+                                <option value="cyan">Cyan</option>
+                                <option value="magenta">Magenta</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4" id="Reference">
+                            <label for="validationCustom01" class="form-label"><strong>Reference</strong></label>    
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">
+                                    <i class="fa-regular fa-keyboard"></i>
+                                </span>
+                                <input formControlName="Reference" type="text" class="form-control" placeholder="Rog Ally 2024 " >
+                              </div>
+                        </div>
                     </div>
-                    <div class="form-text" id="basic-addon4">Example help text goes outside the input group.</div>
-                  </div>
-                  
-                  <div class="input-group mb-3">
-                    <span class="input-group-text">$</span>
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                    <span class="input-group-text">.00</span>
-                  </div>
-                  
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                    <span class="input-group-text">aaa</span>
-                    <input type="text" class="form-control" placeholder="Server" aria-label="Server">
-                  </div>
-                  
-                  <div class="input-group">
-                    <span class="input-group-text">With textarea</span>
-                    <textarea class="form-control" aria-label="With textarea"></textarea>
-                  </div>
+    
+                    <div class="row">
+                        <div class="col-md-4" id="Size">
+                            <label for="validationCustom01" class="form-label"><strong>Size</strong></label>    
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                                </span>
+                                <input formControlName="Size" type="text" class="form-control" placeholder="Asus" >
+                              </div>
+                            </div>
+                            <div class="col-md-4" id="Storage">
+                                <label for="validationCustom01" class="form-label"><strong>Storage</strong></label>    
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-hard-drive"></i>
+                                    </span>
+                                    <input formControlName="Storage" type="text" class="form-control" placeholder="Asus" >
+                                  </div>
+                            </div>
+                            <div class="col-md-4" id="Ram">
+                            <label for="validationCustom01" class="form-label"><strong>Ram</strong></label>    
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-memory"></i>
+                                </span>
+                                <input formControlName="Ram" type="text" class="form-control" placeholder="Asus" >
+                              </div>
+                            </div>
+                            <div class="col-md-6" id="Processor">
+                            <label for="validationCustom03" class="form-label"><strong>Processor</strong> </label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-microchip"></i>
+                                </span>
+                                <input formControlName="Processor" type="text" class="form-control" placeholder="Intel" >
+                              </div>            
+                            </div>
+                            <div class="col-md-6" id="Price">
+                                <label for="validationCustom03" class="form-label"><strong>Price</strong> </label>
+                                <div class="input-group mb-3" >
+                                    <span class="input-group-text">$</span>
+                                    <input formControlName="Price" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                    <span  class="input-group-text">.00</span>
+                                  </div>     
+                            </div>     
+                            <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                <label class="form-check-label" for="invalidCheck">
+                                Agree to terms and conditions
+                                </label>
+                                <div class="invalid-feedback">
+                                You must agree before submitting.
+                                </div>
+                            </div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary" type="submit">Submit form</button>
+                            </div>
+                    </div>
+              
+                </div>
 
-            </div>
+                
+            </form>
+            
             
         </div>
         
@@ -114,14 +192,14 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Marca</th>
+                            <th>Brand</th>
                             <th>Color</th>
-                            <th>Referencia</th>
-                            <th>Tamaño</th>
-                            <th>Almacenamiento</th>
+                            <th>Reference</th>
+                            <th>Size</th>
+                            <th>Storage</th>
                             <th>Ram</th>
-                            <th>Procesador</th>
-                            <th>Precio</th>
+                            <th>Processor</th>
+                            <th>Price</th>
                             <th>Editar</th>
                             <th>Eliminar</th>
                         </tr>
@@ -129,14 +207,14 @@
                     <tbody>
                         <tr *ngFor="let Laptops of listLaptops">
                            
-                            <td>{{ Laptops.Marca }}</td>
+                            <td>{{ Laptops.Brand }}</td>
                             <td>{{ Laptops.Color }}</td>
-                            <td>{{ Laptops.Referencia }}</td>
-                            <td>{{ Laptops.Tamano }}</td>
-                            <td>{{ Laptops.Almacenamiento }}</td>
+                            <td>{{ Laptops.Reference }}</td>
+                            <td>{{ Laptops.Size }}</td>
+                            <td>{{ Laptops.Storage }}</td>
                             <td>{{ Laptops.Ram }}</td>
-                            <td>{{ Laptops.Procesador }}</td>
-                            <td>{{ Laptops.Precio }}</td>
+                            <td>{{ Laptops.Processor }}</td>
+                            <td>{{ Laptops.Price }}</td>
                             <td>
                                 <i class="far fa-edit" style="color: #6610f2;"></i>
                             </td>
