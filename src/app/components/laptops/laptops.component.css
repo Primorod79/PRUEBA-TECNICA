@@ -13,7 +13,7 @@ body{
 }
 
 h1{ font-size: 3.5em;}
-h2{ font-size: 2.7em;
+h2{ font-size: 3.5em;
     text-align: center;
     margin: 30px;}
 h3{ font-size: 2em;}
@@ -49,7 +49,7 @@ button:hover{
 
 header{
     background-color: rgb(245,245,245);
-    
+    z-index: 1000;
 }
 
 header .logo{
@@ -141,8 +141,11 @@ header a:hover{
     margin: 30px;
     border-radius: 15px;
 }
+#Create-Product .container{
+    padding: 100px 102px;
+}
 
-#List-Product .tabla{
+#Create-Produc .formulario{
     background-position: center center;
     background-size: cover;
     padding: 10px 90px;
@@ -153,6 +156,19 @@ header a:hover{
 
 
 
+#List-Product .tabla{
+    background-position: center center;
+    background-size: cover;
+    padding: 10px 90px;
+    margin: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#List-Product .container{
+    text-align: center;
+    padding: 100px 12px;
+}
 
 
 .carta:first-child{
@@ -182,16 +198,6 @@ header a:hover{
     )
     ,url("https://wallpaperaccess.com/full/191366.jpg");
 
-}
-
-#Create-Product .container{
-    text-align: center;
-    padding: 250px 12px;
-}
-
-#Create-Product li{
-    margin: 16px 0px;
-    font-weight: bold;
 }
 
 #final{
@@ -334,21 +340,6 @@ footer .container{
 
     }
 
-    #Create-Product{
-        background-image: url("https://images.pexels.com/photos/2775196/pexels-photo-2775196.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-        background-repeat: no-repeat;
-        background-size: 500px 400px;
-        background-position: calc(100vw - 500px) 120px;
-    }
-
-    #Create-Product .container{
-        text-align: initial;
-    }
-
-    #Create-Product ul{
-        margin-left: 100px;
-    }
-
     #final h2{
         font-size: 5em;
     }
@@ -362,8 +353,4 @@ footer .container{
     }
 }
 
-@media (min-width: 1200px) {
-    #Create-Product{
-        background-position-x: calc(100vw - 800px);
-    }
-}
+
