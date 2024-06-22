@@ -54,13 +54,54 @@
     </section>
 
     <section id="Create-Product">
+        
+    </section>
+
+    <section id="List-Product">
         <div class="container">
-            <ul>
-                <li>✔️ 100% online</li>
-                <li>✔️ Flexibilidad de horarios</li>
-                <li>✔️ Soporte 1:1</li>
-                <li>✔️ Asistencia financiera</li>
-            </ul>
+            <div class="texto">
+                <h2>List of<span class="color-acento"> Laptops</span></h2>
+            </div>
+         
+            <div class="tabla">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Marca</th>
+                            <th>Color</th>
+                            <th>Referencia</th>
+                            <th>Tamaño</th>
+                            <th>Almacenamiento</th>
+                            <th>Ram</th>
+                            <th>Procesador</th>
+                            <th>Precio</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let Laptops of listLaptops">
+                           
+                            <td>{{ Laptops.Marca }}</td>
+                            <td>{{ Laptops.Color }}</td>
+                            <td>{{ Laptops.Referencia }}</td>
+                            <td>{{ Laptops.Tamano }}</td>
+                            <td>{{ Laptops.Almacenamiento }}</td>
+                            <td>{{ Laptops.Ram }}</td>
+                            <td>{{ Laptops.Procesador }}</td>
+                            <td>{{ Laptops.Precio }}</td>
+                            <td>
+                                <i class="far fa-edit" style="color: #6610f2;"></i>
+                            </td>
+                            <td>
+                                <i class="far fa-trash-alt text-danger"></i>
+                            </td>
+                        </tr>
+    
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
     </section>
 
