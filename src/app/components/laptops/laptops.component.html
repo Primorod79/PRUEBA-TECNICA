@@ -68,9 +68,11 @@
                             <label for="validationCustom01" class="form-label"><strong>Brand</strong></label>    
                             <div class="input-group mb-3">
                                 <span class="input-group-text">
-                                    <i class="fa-solid fa-laptop"></i>
+                                    <i class="fa-solid fa-laptop"
+                                    [class.green-icon]="this.form.get('Brand')?.valid"
+                                [class.red-icon]="this.form.get('Brand')?.invalid && this.form.get('Brand')?.touched"></i>
                                 </span>
-                                <input formControlName="Brand" type="text" class="form-control" placeholder="Asus Rog Strix" >
+                                <input formControlName="Brand" maxlength="12" type="text" class="form-control" placeholder="Asus Rog Strix" >
                               </div>
                         </div>
     
@@ -104,9 +106,11 @@
                             <label for="validationCustom01" class="form-label"><strong>Reference</strong></label>    
                             <div class="input-group mb-3">
                                 <span class="input-group-text">
-                                    <i class="fa-regular fa-keyboard"></i>
+                                    <i class="fa-regular fa-keyboard"
+                                    [class.green-icon]="this.form.get('Reference')?.valid"
+                                    [class.red-icon]="this.form.get('Reference')?.invalid && this.form.get('Reference')?.touched"></i>
                                 </span>
-                                <input formControlName="Reference" type="text" class="form-control" placeholder="Rog Ally 2024 " >
+                                <input formControlName="Reference" type="text" maxlength="8" class="form-control" placeholder="Rog Ally 2024 " >
                               </div>
                         </div>
                     </div>
@@ -116,34 +120,42 @@
                             <label for="validationCustom01" class="form-label"><strong>Size</strong></label>    
                             <div class="input-group mb-3">
                                 <span class="input-group-text">
-                                    <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                                    <i class="fa-solid fa-up-right-and-down-left-from-center"
+                                    [class.green-icon]="this.form.get('Size')?.valid"
+                                    [class.red-icon]="this.form.get('Size')?.invalid && this.form.get('Size')?.touched"></i>
                                 </span>
-                                <input formControlName="Size" type="text" class="form-control" placeholder="Asus" >
+                                <input formControlName="Size" maxlength="5" type="text" class="form-control" placeholder="19''" >
                               </div>
                             </div>
                             <div class="col-md-4" id="Storage">
                                 <label for="validationCustom01" class="form-label"><strong>Storage</strong></label>    
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">
-                                        <i class="fa-solid fa-hard-drive"></i>
+                                        <i class="fa-solid fa-hard-drive"
+                                        [class.green-icon]="this.form.get('Storage')?.valid"
+                                    [class.red-icon]="this.form.get('Storage')?.invalid && this.form.get('Storage')?.touched"></i>
                                     </span>
-                                    <input formControlName="Storage" type="text" class="form-control" placeholder="Asus" >
+                                    <input formControlName="Storage" maxlength="5" type="text" class="form-control" placeholder="128GB" >
                                   </div>
                             </div>
                             <div class="col-md-4" id="Ram">
                             <label for="validationCustom01" class="form-label"><strong>Ram</strong></label>    
                             <div class="input-group mb-3">
                                 <span class="input-group-text">
-                                    <i class="fa-solid fa-memory"></i>
+                                    <i class="fa-solid fa-memory"
+                                    [class.green-icon]="this.form.get('Ram')?.valid"
+                                    [class.red-icon]="this.form.get('Ram')?.invalid && this.form.get('Ram')?.touched"></i>
                                 </span>
-                                <input formControlName="Ram" type="text" class="form-control" placeholder="Asus" >
+                                <input formControlName="Ram" maxlength="5" type="text" class="form-control" placeholder="16GB" >
                               </div>
                             </div>
                             <div class="col-md-6" id="Processor">
                             <label for="validationCustom03" class="form-label"><strong>Processor</strong> </label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">
-                                    <i class="fa-solid fa-microchip"></i>
+                                    <i class="fa-solid fa-microchip"
+                                    [class.green-icon]="this.form.get('Processor')?.valid"
+                                    [class.red-icon]="this.form.get('Processor')?.invalid && this.form.get('Processor')?.touched"></i>
                                 </span>
                                 <input formControlName="Processor" type="text" class="form-control" placeholder="Intel" >
                               </div>            
@@ -152,7 +164,7 @@
                                 <label for="validationCustom03" class="form-label"><strong>Price</strong> </label>
                                 <div class="input-group mb-3" >
                                     <span class="input-group-text">$</span>
-                                    <input formControlName="Price" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                    <input formControlName="Price" maxlength="12" type="text" class="form-control" placeholder="500.000" aria-label="Amount (to the nearest dollar)">
                                     <span  class="input-group-text">.00</span>
                                   </div>     
                             </div>     
@@ -168,7 +180,7 @@
                             </div>
                             </div>
                             <div class="d-grid gap-2">
-                                <button class="btn btn-primary" type="submit">Submit form</button>
+                                <button [disabled]="this.form.invalid" class="btn btn-primary" type="submit">Submit form</button>
                             </div>
                     </div>
               
@@ -205,7 +217,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let Laptops of listLaptops">
+                        <tr *ngFor="let Laptops of listLaptops; let i = index">
                            
                             <td>{{ Laptops.Brand }}</td>
                             <td>{{ Laptops.Color }}</td>
@@ -219,7 +231,7 @@
                                 <i class="far fa-edit" style="color: #6610f2;"></i>
                             </td>
                             <td>
-                                <i class="far fa-trash-alt text-danger"></i>
+                                <i (click)="deletelaptop(i)" class="far fa-trash-alt text-danger"></i>
                             </td>
                         </tr>
     
