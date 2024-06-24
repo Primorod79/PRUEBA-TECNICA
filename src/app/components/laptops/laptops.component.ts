@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { LaptopService } from '../../services/laptop.service';
 
 
 @Component({
@@ -9,15 +10,16 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './laptops.component.css'
 })
 export class LaptopsComponent {
+  listLaptops: any[] = [];
+  action = 'Create ';
   form: FormGroup;
+  id: number | undefined;
 
-  listLaptops: any[] = [
-    {Brand: 'Dell',Color: 'Blanco', Reference:'1J2',Size:'12"', Storage:'128GB', Ram:'12GB',Processor: 'Intel',Price: '100.000'},
-    {Brand: 'Dell',Color: 'Blanco', Reference:'1J2',Size:'12"', Storage:'128GB', Ram:'12GB',Processor: 'Intel',Price: '100.000'}
-  ];
+  
 
   constructor(private fb: FormBuilder,
-    private toastr: ToastrService){
+    private toastr: ToastrService,
+    private _laptopsService: LaptopService){
     this.form = this.fb.group({
       Brand: ['', Validators.required],
       Color: ['',Validators.required],
@@ -33,8 +35,17 @@ export class LaptopsComponent {
 
 
   ngOnInit(): void{
+    this.obteinlaptops();
 
   }
+    obteinlaptops(){
+      this._laptopsService.getListlaptops().subscribe(data => {
+        console.log(data);
+        this.listLaptops = data;
+      }, error =>{
+        console.log(error);
+      })
+    }
   
     addlaptop(){
       console.log(this.form);
@@ -49,15 +60,64 @@ export class LaptopsComponent {
         Processor: this.form.get('Processor')?.value,
         Price: this.form.get('Price')?.value,
       }
-      this.listLaptops.push(laptop)
-      this.toastr.success('The Laptop was successfully created!','Laptop created!');
-      this.form.reset();
+      
+      if(this.id == undefined){
+        this._laptopsService.savelaptop(laptop).subscribe(data=>{
+          this.toastr.success('The Laptop was successfully created!','Laptop created!');
+          this.obteinlaptops();
+          this.form.reset();
+        }, error =>{
+          this,this.toastr.error('Opss.. an error occurred','Error')
+          console.log(error);
+        })
+      }else{
+        laptop.id = this.id;
+        this._laptopsService.updatelaptop(this.id,laptop).subscribe(data =>{
+          this.form.reset();
+          this.action = ' Create ';
+          this.id = undefined;
+          this.toastr.info(" The laptop was updated!.", "Laptop updated");
+          this.obteinlaptops();
+
+        },error => {
+          console.log(error);
+        })
+
+      }
+
+      
+     
     }
 
-    deletelaptop(index: number){
-      this.listLaptops.splice(index, 1);
+    deletelaptop(id: number){
+      this._laptopsService.deletelaptop(id).subscribe(data =>{
       this.toastr.error('The laptop was successfully deleted!','Laptop deleted');
+      this.obteinlaptops();
+      }, error => {
+        console.log(error);
+      }
+    )
+      
     }
+
+    editlaptop(laptop: any){
+      this.action= 'Edit';
+      this.id = laptop.id;
+
+      this.form.patchValue({
+        Brand: laptop.Brand,
+        Color: laptop.Color,
+        Reference: laptop.Reference,
+        Size: laptop.Size,
+        Storage: laptop.Size,
+        Ram: laptop.Ram,
+        Processor: laptop.Processor,
+        Price: laptop.Price
+
+      })
+    }
+
+
 
 
 

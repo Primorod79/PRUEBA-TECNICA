@@ -18,7 +18,7 @@
 
     <section id="hero">
         <h1>Find the best laptop  <br>for you</h1>
-        <button>APLICÁ YA!</button>
+        <button>Buy!</button>
     </section>
 
     <section id="About-us">
@@ -26,7 +26,7 @@
             <div class="img-container"></div>
             <div class="texto">
 
-                <h2>Somos <span class="color-acento">ProgramaYa!</span></h2>
+                <h2>We are <span class="color-acento">Laptops it!</span></h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit veritatis a autem sed dignissimos commodi, voluptas incidunt voluptatibus cum, quia neque nulla consequatur laborum accusamus, perspiciatis odio nemo minus vel!</p>
             </div>
         </div>
@@ -34,20 +34,20 @@
 
     <section id="Our-Products">
         <div class="container">
-            <h2>Nuestros Programas</h2>
+            <h2>Our Laptops</h2>
             <div class="programas">
                 <div class="carta">
-                    <h3>Programador Front-end</h3>
+                    <h3>To develop Front-end</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt vero corporis incidunt saepe qui commodi quasi neque veniam quam, aspernatur est beatae maxime animi sed reiciendis mollitia ducimus veritatis repellendus?</p>
                     <button>+ Info</button>
                 </div>
                 <div class="carta">
-                    <h3>Programador Full-Stack</h3>
+                    <h3>To develop Full-Stack</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt vero corporis incidunt saepe qui commodi quasi neque veniam quam, aspernatur est beatae maxime animi sed reiciendis mollitia ducimus veritatis repellendus?</p>
                     <button>+ Info</button>
                 </div>
                 <div class="carta">
-                    <h3>Programador Python</h3>
+                    <h3>To develop Python</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt vero corporis incidunt saepe qui commodi quasi neque veniam quam, aspernatur est beatae maxime animi sed reiciendis mollitia ducimus veritatis repellendus?</p>
                     <button>+ Info</button>
                 </div>  
@@ -58,7 +58,7 @@
     <section id="Create-Product">
         <div class="container">
             <div class="texto">
-                <h2>Create<span class="color-acento"> Product</span></h2>
+                <h2>{{ action }}<span class="color-acento"> Product</span></h2>
             </div >
             <form [formGroup]="form" (ngSubmit)="addlaptop()">
                 <div class="formulario">
@@ -217,7 +217,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let Laptops of listLaptops; let i = index">
+                        <tr *ngFor="let Laptops of listLaptops">
                            
                             <td>{{ Laptops.Brand }}</td>
                             <td>{{ Laptops.Color }}</td>
@@ -228,10 +228,10 @@
                             <td>{{ Laptops.Processor }}</td>
                             <td>{{ Laptops.Price }}</td>
                             <td>
-                                <i class="far fa-edit" style="color: #6610f2;"></i>
+                                <i (click)="editlaptop(Laptops)" class="far fa-edit" style="color: #6610f2;"></i>
                             </td>
                             <td>
-                                <i (click)="deletelaptop(i)" class="far fa-trash-alt text-danger"></i>
+                                <i (click)="deletelaptop(Laptops.id)" class="far fa-trash-alt text-danger"></i>
                             </td>
                         </tr>
     
@@ -243,8 +243,8 @@
     </section>
 
     <section id="final">
-        <h2>Listo para programar?</h2>
-        <button>APLICÁ YA!</button>
+        <h2>Are you ready to buy your next laptop?</h2>
+        <button>BUY</button>
     </section>
 
     <footer>
