@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { LaptopService } from '../../services/laptop.service';
@@ -9,7 +9,7 @@ import { LaptopService } from '../../services/laptop.service';
   templateUrl: './laptops.component.html',
   styleUrl: './laptops.component.css'
 })
-export class LaptopsComponent {
+export class LaptopsComponent implements OnInit {
   listLaptops: any[] = [];
   action = 'Create ';
   form: FormGroup;
@@ -38,10 +38,13 @@ export class LaptopsComponent {
     this.obteinlaptops();
 
   }
-    obteinlaptops(){
+  
+  obteinlaptops(){
       this._laptopsService.getListlaptops().subscribe(data => {
         console.log(data);
+        
         this.listLaptops = data;
+        console.log(this.listLaptops);
       }, error =>{
         console.log(error);
       })
@@ -83,10 +86,7 @@ export class LaptopsComponent {
           console.log(error);
         })
 
-      }
-
-      
-     
+      }    
     }
 
     deletelaptop(id: number){
@@ -109,7 +109,7 @@ export class LaptopsComponent {
         Color: laptop.Color,
         Reference: laptop.Reference,
         Size: laptop.Size,
-        Storage: laptop.Size,
+        Storage: laptop.Storage,
         Ram: laptop.Ram,
         Processor: laptop.Processor,
         Price: laptop.Price
